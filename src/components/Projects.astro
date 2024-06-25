@@ -1,63 +1,106 @@
 ---
-import VanillaIcon from "./icons/Vanilla.astro";
+import GitHub from "./icons/GitHub.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import JavaScript from "./icons/JavaScript.astro";
+import HTML from "./icons/HTML.astro";
+import Node from "./icons/Node.astro";
+import NPM from "./icons/NPM.astro";
+import Link from "./icons/Link.astro";
+import LinkButton from "./LinkButton.astro";
 
-const Tags = {
-  VANILLA: {
-    name: "Vanilla JS",
-    class: "bg-white/10 text-white",
-    icon: VanillaIcon,
+const TAGS = {
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "dark:bg-black dark:text-white bg-white text-black",
+    icon: JavaScript,
   },
   TAILWIND: {
-    name: "Tailwind",
-    class: "bg-white/10 text-white",
-    icon: VanillaIcon,
+    name: "Tailwind CSS",
+    class: "dark:bg-black dark:text-white bg-white text-black",
+    icon: Tailwind,
   },
-  REACT: {
-    name: "React",
-    class: "bg-white/10 text-white",
-    icon: VanillaIcon,
-  }
+  HTML: {
+    name: "HTML",
+    class: "dark:bg-black dark:text-white bg-white text-black",
+    icon: HTML,
+  },
+  NODE: {
+    name: "Node.js",
+    class: "dark:bg-black dark:text-white bg-white text-black",
+    icon: Node,
+  },
+  NPM: {
+    name: "NPM",
+    class: "dark:bg-black dark:text-white bg-white text-black",
+    icon: NPM,
+  },
 };
-
-const Projects = [
+const PROJECTS = [
   {
-    title: "Project 1",
-    description: "lorem ipsummsdngksdn gkj",
+    title: "A basic portfolio inception",
+    description:
+      "Built while learning Astro, implementing different technologies to make development as fast as possible. This framework is specially good for quick programming, as this portfolio was built in one day.",
     link: "#",
-    github: "#",
-    image: "https://placehold.co/300x200",
-    tags: [Tags.VANILLA, Tags.TAILWIND, Tags.REACT],
-  },
-  {
-    title: "Project 2",
-    description: "lorem ipsummsdngksdn gkjasfgsdngn",
-    link: "#",
-    github: "#",
-    image: "https://placehold.co/300x200",
-    tags: [Tags.VANILLA, Tags.TAILWIND, Tags.REACT],
-  },
+    github: "https://github.com/juliaisasti/portfolio24",
+    image: "/projects/portfolio-screenshot.webp",
+    tags: [TAGS.JAVASCRIPT, TAGS.TAILWIND, TAGS.HTML, TAGS.NODE, TAGS.NPM],
+  }
 ];
 ---
 
-{
-  Projects.map(({ title, description, image, tags }) => (
-    <article class="mb-8">
-      <img
-        class="rounded shadow-2xl shadow-white/10 mb-3"
-        src={image}
-        alt={`Captura de pantalla del proyect ${title}`}
-      />
-      <h3 class="text-2xl font-semibold mb-2">{title}</h3>
-      <p class="text-lg mb-4 text-pretty">{description}</p>
-      <ul class="flex gap-x-2 flex-row">
-      {tags.map((tag) => (
-        <li>
-          <span class={`flex gap-x-2 rounded-full text-sm ${tag.class} py-1 px-2`}>
-            <tag.icon /> {tag.name}
-          </span>
-        </li>
-      ))}
-    </ul>
-    </article>
-  ))
-}
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+              alt="Project screenshot"
+              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+              loading="lazy"
+              src={image}
+            />
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+            {title}
+          </h3>
+          <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-row mb-2 gap-x-2">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-2 text-gray-700 dark:text-gray-400">
+              {description}
+            </div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <GitHub class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>

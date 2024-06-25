@@ -3,24 +3,25 @@ import ExperienceItem from "./ExperienceItem.astro";
 const Experience = [
   {
     date: "March 2024 - now",
-    title: "Junior Full-Stack Developer Trainee | Secture Labs",
-    link:"#",
-    description: "Blablablabla",
+    title: "Junior Full-Stack Developer Trainee",
+    company: "Secture Labs",
+    link:"https://secture.com/",
+    description: "Feature Flags monolithic web application development, with own Content Management System. Developed using Docker for containerization, Nest.js, Redis, SQL for its database, PHP and its framework Symfony, React Vite, among other different technologies. Beginner's approach to Typescript. Workflow designed under Scrum's system and Agile methods within the work group to organise workload, feedback and reviews.",
   },
   {
     date: "September 2023 - February 2024",   
-    title:
-      "Full-Stack Development Bootcamp | The Bridge Digital Talent Accelerator",
-    link: "#",
-    description: "Blablablabla",
+    title: "Full-Stack Development Bootcamp",
+    company: "The Bridge Digital Talent Accelerator",
+    link: "https://thebridge.tech/bootcamps/desarrollo-web-full-stack",
+    description: "480 hours of practical training in Full-Stack Web Development. JavaScript-focused Front-end and Back-end programming - Object-Oriented Programming, libraries and data visualization. Use of serverless application development with Firebase. Learning of Git and Git's CLI for version control. Back-end architecture developed with Node.js, Express, utilizing relational and non-relational databases like MongoDB or SQL. Front-end developed with React, Vite and external style libraries and testing.",
   },
 ];
 ---
 
-<ol class="relative border-s border-gray-200 ml-2">
+<ol class="relative mt-16">
   {
     Experience.map((experience) => (
-      <li class="mb-10 ms-4">
+      <li class="">
         <ExperienceItem {...experience} />
       </li>
     ))
