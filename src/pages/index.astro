@@ -1,0 +1,76 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import LinkedInIcon from "../components/icons/LinkedIn.astro";
+import GitHubIcon from "../components/icons/GitHub.astro";
+import MailIcon from "../components/icons/Mail.astro";
+import SocialPill from "../components/SocialPill.astro";
+import Experience from "../components/Experience.astro";
+import Briefcase from "../components/icons/Briefcase.astro";
+import ProjectsIcon from "../components/icons/ProjectsIcon.astro";
+import Projects from "../components/Projects.astro";
+---
+
+<Layout
+  title="Julia Isasti | Full-Stack Developer"
+  description="Madrid-basedWeb Developer and Designer"
+>
+  <main class="px-4">
+    <SectionContainer class="py-40 pb-20">
+      <img
+        class="rounded-full size-12 mb-4"
+        src="https://media.licdn.com/dms/image/D4D03AQFy9my59JZFyQ/profile-displayphoto-shrink_800_800/0/1708518326403?e=1724889600&v=beta&t=iEd23VJ9rH247__jQ0VQzZQGLvI2RHguKdAXwVfGKuI"
+        alt="julia isasti photo"
+      />
+
+      <h1
+        class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+      >
+        Hi! I'm Julia Isasti <a
+          href="https://www.linkedin.com/in/juliaisasti/"
+          target="_blank"
+          rel="noopener"
+          class="flex justify-center items-center"
+          ><Badge>Available for hire</Badge></a
+        >
+      </h1>
+      <h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]">
+        Junior Full-Stack Developer and Web Designer. From Buenos Aires,
+        Argentina, currently in Madrid, Spain. Design, UX/UI and Front-end
+        focused.
+      </h2>
+
+      <nav class="flex gap-4 mt-8 flex-wrap">
+        <SocialPill href="https://www.linkedin.com/in/juliaisasti/">
+          <LinkedInIcon class="size-4 lg:size-6" />
+          LinkedIn
+        </SocialPill>
+        <SocialPill href="https://github.com/juliaisasti">
+          <GitHubIcon class="size-4 lg:size-6" />
+          GitHub
+        </SocialPill>
+        <SocialPill href="https://github.com/juliaisasti">
+          <MailIcon class="size-4 lg:size-6" />
+          juliaisasti@gmail.com
+        </SocialPill>
+      </nav>
+    </SectionContainer>
+
+    <SectionContainer id="experience">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+        <Briefcase class="size-7" />
+        Experience
+      </h2>
+      <Experience />
+    </SectionContainer>
+
+    <SectionContainer id="projects">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+        <ProjectsIcon class="size-7" />
+        Projects
+      </h2>
+      <Projects />
+    </SectionContainer>
+  </main>
+</Layout>

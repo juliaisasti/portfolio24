@@ -1,0 +1,63 @@
+---
+import VanillaIcon from "./icons/Vanilla.astro";
+
+const Tags = {
+  VANILLA: {
+    name: "Vanilla JS",
+    class: "bg-white/10 text-white",
+    icon: VanillaIcon,
+  },
+  TAILWIND: {
+    name: "Tailwind",
+    class: "bg-white/10 text-white",
+    icon: VanillaIcon,
+  },
+  REACT: {
+    name: "React",
+    class: "bg-white/10 text-white",
+    icon: VanillaIcon,
+  }
+};
+
+const Projects = [
+  {
+    title: "Project 1",
+    description: "lorem ipsummsdngksdn gkj",
+    link: "#",
+    github: "#",
+    image: "https://placehold.co/300x200",
+    tags: [Tags.VANILLA, Tags.TAILWIND, Tags.REACT],
+  },
+  {
+    title: "Project 2",
+    description: "lorem ipsummsdngksdn gkjasfgsdngn",
+    link: "#",
+    github: "#",
+    image: "https://placehold.co/300x200",
+    tags: [Tags.VANILLA, Tags.TAILWIND, Tags.REACT],
+  },
+];
+---
+
+{
+  Projects.map(({ title, description, image, tags }) => (
+    <article class="mb-8">
+      <img
+        class="rounded shadow-2xl shadow-white/10 mb-3"
+        src={image}
+        alt={`Captura de pantalla del proyect ${title}`}
+      />
+      <h3 class="text-2xl font-semibold mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-2 flex-row">
+      {tags.map((tag) => (
+        <li>
+          <span class={`flex gap-x-2 rounded-full text-sm ${tag.class} py-1 px-2`}>
+            <tag.icon /> {tag.name}
+          </span>
+        </li>
+      ))}
+    </ul>
+    </article>
+  ))
+}
