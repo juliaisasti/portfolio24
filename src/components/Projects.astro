@@ -5,6 +5,9 @@ import JavaScript from "./icons/JavaScript.astro";
 import HTML from "./icons/HTML.astro";
 import Node from "./icons/Node.astro";
 import NPM from "./icons/NPM.astro";
+import React from "./icons/React.astro";
+import Vite from "./icons/Vite.astro";
+import Flowbite from "./icons/Flowbite.astro";
 import Link from "./icons/Link.astro";
 import LinkButton from "./LinkButton.astro";
 
@@ -29,22 +32,51 @@ const TAGS = {
     class: "dark:bg-black dark:text-white bg-white text-black",
     icon: Node,
   },
+  EXPRESS: {
+    name: "Express",
+    class: "dark:bg-black dark:text-white bg-white text-black",
+    icon: Node,
+  },
   NPM: {
     name: "NPM",
     class: "dark:bg-black dark:text-white bg-white text-black",
     icon: NPM,
   },
+  REACT: {
+    name: "React.js",
+    class: "dark:bg-black dark:text-white bg-white text-black",
+    icon: React,
+  },
+  VITE: {
+    name: "Vite",
+    class: "dark:bg-black dark:text-white bg-white text-black",
+    icon: Vite,
+  },
+  FLOWBITE: {
+    name: "Flowbite",
+    class: "dark:bg-black dark:text-white bg-white text-black",
+    icon: Flowbite,
+  },
 };
 const PROJECTS = [
+  {
+    title: "BPMSpotify [under construction]",
+    description:
+      "Full-stack app created with Spotify's API and its login authentication to work with session tokens. A staple tool for DJs to get a song's BPM, as well as recommending 18 songs in a similar genre with a tempo around the same BPMs, so you can easily build your own playlist to prepare a DJ set. With a finished back-end, I'm currently working on an elegant front-end design that can be easily accesible to anyone.",
+    link: "#",
+    github: "https://github.com/juliaisasti/spotify-dj",
+    image: "/projects/BPMSpotify.webp",
+    tags: [TAGS.NODE, TAGS.EXPRESS, TAGS.NPM, TAGS.TAILWIND, TAGS.REACT, TAGS.VITE, TAGS.FLOWBITE],
+  },
   {
     title: "A basic portfolio inception",
     description:
       "Built while learning Astro, implementing different technologies to make development as fast as possible. This framework is specially good for quick programming, as this portfolio was built in one day.",
-    link: "#",
+    link: "https://juliaisasti.netlify.app/",
     github: "https://github.com/juliaisasti/portfolio24",
     image: "/projects/portfolio-screenshot.webp",
     tags: [TAGS.JAVASCRIPT, TAGS.TAILWIND, TAGS.HTML, TAGS.NODE, TAGS.NPM],
-  }
+  },
 ];
 ---
 
@@ -68,7 +100,7 @@ const PROJECTS = [
             {title}
           </h3>
           <div class="flex flex-wrap mt-2">
-            <ul class="flex flex-row mb-2 gap-x-2">
+            <ul class="flex flex-wrap mb-2 gap-x-2">
               {tags.map((tag) => (
                 <li>
                   <span
